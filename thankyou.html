@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You!</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #181a20;
+      color: #eee;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .thankyou-container {
+      background: #23242a;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.32);
+      padding: 36px 24px 28px 24px;
+      max-width: 420px;
+      text-align: center;
+      border: 1px solid #222;
+      animation: fadeIn 1.2s;
+    }
+    .thankyou-container h1 {
+      font-size: 2em;
+      margin-bottom: 18px;
+      color: #00bcd4;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+    .thankyou-container p {
+      font-size: 1.1em;
+      margin-bottom: 32px;
+      color: #b2ebf2;
+    }
+    .thankyou-container .icon {
+      font-size: 3em;
+      margin-bottom: 18px;
+      color: #00bcd4;
+      animation: pop 1.2s;
+    }
+    .thankyou-container a {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 32px;
+      background: #00bcd4;
+      color: #181a20;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+      transition: background 0.2s;
+    }
+    .thankyou-container a:hover {
+      background: #0097a7;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pop {
+      0% { transform: scale(0.7); }
+      70% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="thankyou-container">
+    <div class="icon">🎉</div>
+    <h1>Thank You!</h1>
+    <p>Your registration was successful.<br>We appreciate your participation.<br>Stay tuned for event updates!</p>
+    <a href="index.html">Back to Home</a>
+  </div>
+    <footer>
+    Unified Events Portal made by Microsoft Student Tech Community &copy;2025. All rights reserved.
+  </footer>
+</body>
+</html>

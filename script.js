@@ -109,7 +109,7 @@ registrationForm.addEventListener('submit', function(e) {
   }
 
   // Team members validation (min 2, max 4 pairs)
-  const pairs = teamMembersDiv.querySelectorAll('.member-pair');
+  let pairs = teamMembersDiv.querySelectorAll('.member-pair');
   if (pairs.length < 3 || pairs.length > 5) {
     alert('Other team members must be between 3 and 5, and each must have an enrollment no.');
     return;
@@ -130,6 +130,40 @@ registrationForm.addEventListener('submit', function(e) {
     return;
   }
 
-  registrationForm.style.display = 'none';
-  successMsg.style.display = 'block';
+  // Collect form data
+  const formData = {
+    team_leader_name: document.getElementById('teamLeaderName').value.trim(),
+    team_leader_enroll: document.getElementById('teamLeaderEnroll').value.trim(),
+    department: document.getElementById('department').value.trim(),
+    course: document.getElementById('course').value.trim(),
+    section: document.getElementById('section').value.trim(),
+    batch: document.getElementById('batch').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    team_members: []
+  };
+  for (let i = 0; i < pairs.length; i++) {
+    formData.team_members.push({
+      name: pairs[i].querySelector('input[name="teamMember"]').value.trim(),
+      enroll: pairs[i].querySelector('input[name="teamMemberEnroll"]').value.trim()
+    });
+  }
+  const pdfFile = idProofInput.files[0];
+  window.uploadFormData(formData).then(async ({ data, error }) => {
+    if (error) {
+      alert('Error saving form data: ' + error.message);
+      registrationForm.style.display = '';
+      successMsg.style.display = 'none';
+      return;
+    }
+    const teamLeaderName = formData.team_leader_name;
+    const pdfResult = await window.uploadPDF(pdfFile, teamLeaderName);
+    if (pdfResult.error) {
+      alert('Error uploading PDF: ' + pdfResult.error.message);
+      registrationForm.style.display = '';
+      successMsg.style.display = 'none';
+      return;
+    }
+    window.location.href = 'thankyou.html';
+  });
 });
