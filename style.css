@@ -8,7 +8,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .container {
   max-width: 420px;
   width: 100%;
@@ -21,7 +20,6 @@ body {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-
 h2 {
   text-align: center;
   margin-bottom: 24px;
@@ -30,7 +28,6 @@ h2 {
   letter-spacing: 0.5px;
   color: #00bcd4;
 }
-
 form label {
   display: block;
   margin: 18px 0 7px;
@@ -38,7 +35,6 @@ form label {
   color: #b2ebf2;
   font-weight: 400;
 }
-
 form input[type="text"],
 form input[type="email"],
 form input[type="tel"] {
