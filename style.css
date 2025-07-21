@@ -1,0 +1,119 @@
+body {
+  background: #181a20;
+  color: #eee;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+  background: #23242a;
+  padding: 36px 24px 28px 24px;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.32);
+  border: 1px solid #222;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 1.5em;
+  letter-spacing: 0.5px;
+  color: #00bcd4;
+}
+
+form label {
+  display: block;
+  margin: 18px 0 7px;
+  font-size: 1em;
+  color: #b2ebf2;
+  font-weight: 400;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"] {
+  width: 100%;
+  padding: 10px 12px;
+  background: #181a20;
+  border: 1px solid #333;
+  border-radius: 7px;
+  color: #eee;
+  font-size: 1em;
+  margin-bottom: 12px;
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+
+form input:focus {
+  border-color: #00bcd4;
+}
+
+form button[type="submit"] {
+  background: #00bcd4;
+  color: #181a20;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 0;
+  width: 100%;
+  font-size: 1em;
+  margin-top: 22px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+form button[type="submit"]:hover {
+  background: #0097a7;
+}
+
+#addMember, #removeMember {
+  width: 48%;
+  margin-top: 8px;
+  margin-right: 2%;
+  background: #23242a;
+  color: #eee;
+  border: 1px solid #333;
+  border-radius: 7px;
+  font-size: 0.97em;
+  padding: 10px 0;
+  font-weight: 400;
+  transition: background 0.2s, opacity 0.2s;
+  display: inline-block;
+}
+
+#addMember:disabled, #removeMember:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #222;
+  color: #888;
+}
+
+#addMember:hover:not(:disabled), #removeMember:hover:not(:disabled) {
+  background: #181a20;
+}
+
+#removeMember {
+  margin-right: 0;
+}
+
+#successMsg {
+  text-align: center;
+  color: #00bcd4;
+  margin-top: 20px;
+  font-size: 1.1em;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
