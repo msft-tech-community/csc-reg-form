@@ -58,6 +58,10 @@ updateMemberButtons();
 registrationForm.addEventListener('submit', function(e) {
   e.preventDefault();
   let valid = true;
+  const registerBtn = registrationForm.querySelector('button[type="submit"]');
+  registerBtn.disabled = true;
+  registerBtn.innerHTML = '<span class="spinner"></span> Registering...';
+
   // Check all required fields
   const requiredFields = [
     'teamLeaderName', 'teamLeaderEnroll', 'department', 'course', 'section', 'batch', 'email', 'phone'
@@ -78,16 +82,22 @@ registrationForm.addEventListener('submit', function(e) {
   if (!file) {
     idProofInput.style.borderColor = '#f77';
     alert('Please upload Team Leader ID Proof (PDF, max 2MB).');
+    registerBtn.disabled = false;
+    registerBtn.innerHTML = 'Register';
     return;
   }
   if (file.type !== 'application/pdf') {
     idProofInput.style.borderColor = '#f77';
     alert('ID Proof must be a PDF file.');
+    registerBtn.disabled = false;
+    registerBtn.innerHTML = 'Register';
     return;
   }
   if (file.size > 2 * 1024 * 1024) {
     idProofInput.style.borderColor = '#f77';
     alert('ID Proof PDF must be less than 2MB.');
+    registerBtn.disabled = false;
+    registerBtn.innerHTML = 'Register';
     return;
   }
   idProofInput.style.borderColor = '';
@@ -97,6 +107,8 @@ registrationForm.addEventListener('submit', function(e) {
   if (/(@amity\.edu|@amityuniversity\.in)$/i.test(email)) {
     document.getElementById('email').style.borderColor = '#f77';
     alert('Please use a non-Amity email address.');
+    registerBtn.disabled = false;
+    registerBtn.innerHTML = 'Register';
     return;
   }
 
@@ -105,6 +117,8 @@ registrationForm.addEventListener('submit', function(e) {
   if (!/^[0-9]{10}$/.test(phone)) {
     document.getElementById('phone').style.borderColor = '#f77';
     alert('Please enter a valid 10-digit phone number.');
+    registerBtn.disabled = false;
+    registerBtn.innerHTML = 'Register';
     return;
   }
 
@@ -112,6 +126,8 @@ registrationForm.addEventListener('submit', function(e) {
   let pairs = teamMembersDiv.querySelectorAll('.member-pair');
   if (pairs.length < 3 || pairs.length > 5) {
     alert('Other team members must be between 3 and 5, and each must have an enrollment no.');
+    registerBtn.disabled = false;
+    registerBtn.innerHTML = 'Register';
     return;
   }
   for (let i = 0; i < pairs.length; i++) {
@@ -127,6 +143,8 @@ registrationForm.addEventListener('submit', function(e) {
 
   if (!valid) {
     alert('Please fill all required fields.');
+    registerBtn.disabled = false;
+    registerBtn.innerHTML = 'Register';
     return;
   }
 
@@ -136,7 +154,7 @@ registrationForm.addEventListener('submit', function(e) {
     team_leader_enroll: document.getElementById('teamLeaderEnroll').value.trim(),
     department: document.getElementById('department').value.trim(),
     course: document.getElementById('course').value.trim(),
-    section: document.getElementById('section').value.trim(),
+    section:    document.getElementById('section').value.trim(),
     batch: document.getElementById('batch').value.trim(),
     email: document.getElementById('email').value.trim(),
     phone: document.getElementById('phone').value.trim(),
@@ -154,6 +172,8 @@ registrationForm.addEventListener('submit', function(e) {
       alert('Error saving form data: ' + error.message);
       registrationForm.style.display = '';
       successMsg.style.display = 'none';
+      registerBtn.disabled = false;
+      registerBtn.innerHTML = 'Register';
       return;
     }
     const teamLeaderName = formData.team_leader_name;
@@ -162,8 +182,14 @@ registrationForm.addEventListener('submit', function(e) {
       alert('Error uploading PDF: ' + pdfResult.error.message);
       registrationForm.style.display = '';
       successMsg.style.display = 'none';
+      registerBtn.disabled = false;
+      registerBtn.innerHTML = 'Register';
       return;
     }
-    window.location.href = 'thankyou.html';
+    registrationForm.classList.add('fade-out');
+    setTimeout(() => {
+      window.location.href = 'pages/thankyou.html';
+    }, 700);
   });
+// Add spinner CSS to style.css if not present
 });

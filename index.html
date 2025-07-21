@@ -1,70 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Registration Form</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <form id="registrationForm">
-      <h2>Code Red : The Cyber Buzzer Battle</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Red : The Cyber Buzzer Battle | Team Quiz Registration</title>
+    <meta name="description" content="Register for Code Red: The Cyber Buzzer Battle, a thrilling team-based quiz event where the fastest team to press the buzzer wins! Open to all Computer Science students. Form your team and compete for glory." />
+    <meta name="keywords" content="Code Red, Cyber Buzzer Battle, quiz, team quiz, buzzer quiz, registration, Computer Science, event, Amity, student tech, coding, competition" />
+    <meta name="author" content="Microsoft Student Tech Community" />
+    <meta property="og:title" content="Code Red : The Cyber Buzzer Battle" />
+    <meta property="og:description" content="Register your team for Code Red: The Cyber Buzzer Battle, the ultimate team-based buzzer quiz event!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://csc.mlsacommunity.tech/" />
+    <meta property="og:image" content="https://csc.mlsacommunity.tech/assets/cyber-buzzer-banner.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Code Red : The Cyber Buzzer Battle" />
+    <meta name="twitter:description" content="Register your team for Code Red: The Cyber Buzzer Battle, the ultimate team-based buzzer quiz event!" />
+    <meta name="twitter:image" content="https://csc.mlsacommunity.tech/assets/cyber-buzzer-banner.png" />
+    <link rel="canonical" href="https://csc.mlsacommunity.tech/" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form id="registrationForm">
+        <h2>Code Red : The Cyber Buzzer Battle</h2>
 
-      <label for="teamLeaderName">Team Leader Name <span style="color:#00bcd4">*</span></label>
-      <input type="text" id="teamLeaderName" name="teamLeaderName" required placeholder="Enter team leader's full name">
+        <label for="teamLeaderName"
+          >Team Leader Name <span style="color: #00bcd4">*</span></label
+        >
+        <input
+          type="text"
+          id="teamLeaderName"
+          name="teamLeaderName"
+          required
+          placeholder="Enter team leader's full name"
+        />
 
-      <label for="teamLeaderEnroll">Team Leader Enrollment No <span style="color:#00bcd4">*</span></label>
-      <input type="text" id="teamLeaderEnroll" name="teamLeaderEnroll" required placeholder="e.g. A123456789">
+        <label for="teamLeaderEnroll"
+          >Team Leader Enrollment No
+          <span style="color: #00bcd4">*</span></label
+        >
+        <input
+          type="text"
+          id="teamLeaderEnroll"
+          name="teamLeaderEnroll"
+          required
+          placeholder="e.g. A123456789"
+        />
 
-      <label for="department">Department <span style="color:#00bcd4">*</span></label>
-      <input type="text" id="department" name="department" required placeholder="e.g. Computer Science">
+        <label for="department"
+          >Department <span style="color: #00bcd4">*</span></label
+        >
+        <input
+          type="text"
+          id="department"
+          name="department"
+          required
+          placeholder="e.g. Computer Science"
+        />
 
-      <label for="course">Course <span style="color:#00bcd4">*</span></label>
-      <input type="text" id="course" name="course" required placeholder="e.g. B.Tech, MCA">
+        <label for="course">Course <span style="color: #00bcd4">*</span></label>
+        <input
+          type="text"
+          id="course"
+          name="course"
+          required
+          placeholder="e.g. B.Tech, MCA"
+        />
 
-      <label for="section">Section <span style="color:#00bcd4">*</span></label>
-      <input type="text" id="section" name="section" required placeholder="e.g. A, B, C">
+        <label for="section"
+          >Section <span style="color: #00bcd4">*</span></label
+        >
+        <input
+          type="text"
+          id="section"
+          name="section"
+          required
+          placeholder="e.g. A, B, C"
+        />
 
-      <label for="batch">Batch <span style="color:#00bcd4">*</span></label>
-      <input type="text" id="batch" name="batch" required placeholder="e.g. 2022-2026">
+        <label for="batch">Batch <span style="color: #00bcd4">*</span></label>
+        <input
+          type="text"
+          id="batch"
+          name="batch"
+          required
+          placeholder="e.g. 2022-2026"
+        />
 
-      <label for="email">Team Leader Email <span style="color:#00bcd4">*</span> <span style="font-size:0.95em;color:#f77">(Non-Amity email only)</span></label>
-      <input type="email" id="email" name="email" required placeholder="Enter team leader's non-Amity email">
+        <label for="email"
+          >Team Leader Email <span style="color: #00bcd4">*</span>
+          <span style="font-size: 0.95em; color: #f77"
+            >(Non-Amity email only)</span
+          ></label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="Enter team leader's non-Amity email"
+        />
 
-      <label for="phone">Team Leader Phone No <span style="color:#00bcd4">*</span></label>
-      <input type="tel" id="phone" name="phone" required placeholder="10-digit mobile number" pattern="[0-9]{10}">
+        <label for="phone"
+          >Team Leader Phone No <span style="color: #00bcd4">*</span></label
+        >
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          placeholder="10-digit mobile number"
+          pattern="[0-9]{10}"
+        />
 
-      <label>Other Team Members (min 3, max 5) <span style="color:#00bcd4">*</span></label>
-      <div id="teamMembers">
-        <div class="member-pair" style="display:flex;gap:8px;margin-bottom:12px;">
-          <input type="text" name="teamMember" placeholder="Member 1 Name (required)" required style="flex:1;">
-          <input type="text" name="teamMemberEnroll" placeholder="Member 1 Enrollment No (required)" required style="flex:1;">
+        <label
+          >Other Team Members (min 3, max 5)
+          <span style="color: #00bcd4">*</span></label
+        >
+        <div id="teamMembers">
+          <div
+            class="member-pair"
+            style="display: flex; gap: 8px; margin-bottom: 12px"
+          >
+            <input
+              type="text"
+              name="teamMember"
+              placeholder="Member 1 Name (required)"
+              required
+              style="flex: 1"
+            />
+            <input
+              type="text"
+              name="teamMemberEnroll"
+              placeholder="Member 1 Enrollment No (required)"
+              required
+              style="flex: 1"
+            />
+          </div>
+          <div
+            class="member-pair"
+            style="display: flex; gap: 8px; margin-bottom: 12px"
+          >
+            <input
+              type="text"
+              name="teamMember"
+              placeholder="Member 2 Name (required)"
+              required
+              style="flex: 1"
+            />
+            <input
+              type="text"
+              name="teamMemberEnroll"
+              placeholder="Member 2 Enrollment No (required)"
+              required
+              style="flex: 1"
+            />
+          </div>
+          <div
+            class="member-pair"
+            style="display: flex; gap: 8px; margin-bottom: 12px"
+          >
+            <input
+              type="text"
+              name="teamMember"
+              placeholder="Member 3 Name (required)"
+              required
+              style="flex: 1"
+            />
+            <input
+              type="text"
+              name="teamMemberEnroll"
+              placeholder="Member 3 Enrollment No (required)"
+              required
+              style="flex: 1"
+            />
+          </div>
         </div>
-        <div class="member-pair" style="display:flex;gap:8px;margin-bottom:12px;">
-          <input type="text" name="teamMember" placeholder="Member 2 Name (required)" required style="flex:1;">
-          <input type="text" name="teamMemberEnroll" placeholder="Member 2 Enrollment No (required)" required style="flex:1;">
-        </div>
-        <div class="member-pair" style="display:flex;gap:8px;margin-bottom:12px;">
-          <input type="text" name="teamMember" placeholder="Member 3 Name (required)" required style="flex:1;">
-          <input type="text" name="teamMemberEnroll" placeholder="Member 3 Enrollment No (required)" required style="flex:1;">
-        </div>
-      </div>
-      <button type="button" id="addMember">Add Member</button>
-      <button type="button" id="removeMember">Remove Member</button>
+        <button type="button" id="addMember">Add Member</button>
+        <button type="button" id="removeMember">Remove Member</button>
 
-      <label for="idProof">Team Leader's ID Proof <span style="color:#00bcd4">*</span> <span style="font-size:0.95em;color:#f77">(PDF only, max 2MB)</span></label>
-      <input type="file" id="idProof" name="idProof" accept="application/pdf" required>
+        <label for="idProof"
+          >Team Leader's ID Proof <span style="color: #00bcd4">*</span>
+          <span style="font-size: 0.95em; color: #f77"
+            >(PDF only, max 2MB)</span
+          ></label
+        >
+        <input
+          type="file"
+          id="idProof"
+          name="idProof"
+          accept="application/pdf"
+          required
+        />
 
-      <button type="submit">Register</button>
-    </form>
-    <div id="successMsg" style="display:none;">Registration successful!</div>
-  </div>
-  <footer>
-    Unified Events Portal made by Microsoft Student Tech Community &copy;2025. All rights reserved.
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="supabase.js"></script>
-  <script src="script.js"></script>
-</body>
+        <button type="submit">Register</button>
+      </form>
+      <div id="successMsg" style="display: none">Registration successful!</div>
+    </div>
+    <footer style="text-align: center; margin-top: 32px">
+      Unified Events Portal made by Microsoft Student Tech Community &copy;2025.
+      All rights reserved.
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="scripts/supabase.js"></script>
+    <script src="scripts/script.js"></script>
+  </body>
 </html>
