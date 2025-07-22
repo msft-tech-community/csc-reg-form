@@ -3,8 +3,8 @@
   display: inline-block;
   width: 18px;
   height: 18px;
-  border: 3px solid #00bcd4;
-  border-top: 3px solid #181a20;
+  border: 3px solid rgba(0, 188, 212, 0.3);
+  border-top-color: #00e5ff; /* Brighter top border for contrast */
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   vertical-align: middle;
@@ -12,8 +12,7 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Fade out animation for form */
@@ -27,177 +26,273 @@
     transform: scale(0.98);
   }
 }
+
+/* --- General Body & Font Styling --- */
 body {
-  background: #181a20;
-  color: #eee;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background-color: #111318;
+  background-image: radial-gradient(ellipse at top, #1e222c, #111318);
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   min-height: 100vh;
   display: block;
-  padding-left: 8vw;
-  padding-right: 8vw;
+  padding: 0 8vw;
+  box-sizing: border-box;
 }
 
+/* --- Main Container --- */
 .container {
-  max-width: 420px;
+  max-width: 480px;
   width: 100%;
-  margin: 50px auto 0 auto;
-  background: #23242a;
-  padding: 36px 24px 28px 24px;
-  border-radius: 14px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.32);
-  border: 1px solid #222;
+  margin: 50px auto;
+  background: #1c1e24;
+  padding: 40px 30px;
+  border-radius: 16px;
+  border: 1px solid #2a2c34;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.07), 0 8px 30px rgba(0,0,0,0.5);
+  transition: all 0.3s ease-in-out;
 }
+
+/* --- Typography --- */
 h2 {
   text-align: center;
-  margin-bottom: 24px;
-  font-weight: 500;
-  font-size: 1.5em;
-  letter-spacing: 0.5px;
-  color: #00bcd4;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 1.7em;
+  letter-spacing: 1px;
+  color: #00e5ff;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
 }
+
+/* --- Form Elements --- */
 form label {
   display: block;
-  margin: 18px 0 7px;
-  font-size: 1em;
-  color: #b2ebf2;
-  font-weight: 400;
+  margin: 20px 0 8px;
+  font-size: 0.95em;
+  color: #a8b2d1;
+  font-weight: 500;
 }
+
+form label .required {
+  color: #00bcd4;
+}
+
+form label .note {
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #ff8a80;
+  margin-left: 4px;
+}
+
+
 form input[type="text"],
 form input[type="email"],
 form input[type="tel"] {
   width: 100%;
-  padding: 10px 12px;
-  background: #181a20;
-  border: 1px solid #333;
-  border-radius: 7px;
-  color: #eee;
+  padding: 12px 14px;
+  background: #14161a;
+  border: 1px solid #3a3f4b;
+  border-radius: 8px;
+  color: #e0e0e0;
   font-size: 1em;
-  margin-bottom: 12px;
+  font-family: 'Inter', sans-serif;
   outline: none;
-  transition: border 0.2s;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   box-sizing: border-box;
+}
+
+form input::placeholder {
+  color: #5a647e;
 }
 
 form input:focus {
   border-color: #00bcd4;
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
 }
 
+/* Team member layout */
+.member-pair {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.member-pair input {
+  flex: 1;
+}
+
+/* --- Buttons --- */
 form button[type="submit"] {
-  background: #00bcd4;
-  color: #181a20;
+  background: linear-gradient(45deg, #00bcd4, #008ba3);
+  color: #ffffff;
   border: none;
-  border-radius: 7px;
-  padding: 12px 0;
+  border-radius: 8px;
+  padding: 14px 0;
   width: 100%;
-  font-size: 1em;
-  margin-top: 22px;
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-top: 25px;
   cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-form button[type="submit"]:hover {
-  background: #0097a7;
+form button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.25);
+  background: linear-gradient(45deg, #00cde4, #0097a7);
+}
+
+form button[type="submit"]:disabled {
+  background: #2a2c34;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 #addMember, #removeMember {
-  width: 48%;
+  width: calc(50% - 4px);
   margin-top: 8px;
-  margin-right: 2%;
-  background: #23242a;
-  color: #eee;
-  border: 1px solid #333;
-  border-radius: 7px;
-  font-size: 0.97em;
+  background: transparent;
+  color: #a8b2d1;
+  border: 1px solid #3a3f4b;
+  border-radius: 8px;
+  font-size: 0.9em;
   padding: 10px 0;
-  font-weight: 400;
-  transition: background 0.2s, opacity 0.2s;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
   display: inline-block;
 }
 
-#addMember:disabled, #removeMember:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background: #222;
-  color: #888;
+#addMember {
+  margin-right: 8px;
 }
 
 #addMember:hover:not(:disabled), #removeMember:hover:not(:disabled) {
-  background: #181a20;
+  background: rgba(0, 188, 212, 0.1);
+  border-color: #00bcd4;
+  color: #00e5ff;
 }
 
-#removeMember {
-  margin-right: 0;
+#addMember:disabled, #removeMember:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #1c1e24;
+  border-color: #2a2c34;
+  color: #6a7185;
 }
 
+/* --- Special Inputs: File Input --- */
+input[type="file"] {
+  color: #8892b0;
+  font-size: 0.95em;
+  width: 100%;
+  margin-top: 8px;
+  background: #14161a;
+  border: 1px dashed #3a3f4b;
+  border-radius: 8px;
+  padding: 8px;
+  transition: border-color 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+input[type="file"]:hover {
+    border-color: #00bcd4;
+}
+
+input[type="file"]::file-selector-button {
+  background: #2a2c34;
+  color: #a8b2d1;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-right: 16px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #3a3f4b;
+  color: #fff;
+}
+
+/* --- Success Message & Footer --- */
 #successMsg {
+  display: none; /* Hidden by default */
   text-align: center;
-  color: #00bcd4;
+  color: #00e5ff;
   margin-top: 20px;
   font-size: 1.1em;
-  background: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-}
-footer{
-  padding-top: 30px;
-  padding-bottom: 30px;
+  font-weight: 500;
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.1);
+  padding: 15px;
+  border-radius: 8px;
 }
 
-@media (max-width: 900px) {
+footer {
+  padding: 40px 0;
+  text-align: center;
+  margin-top: 32px;
+  opacity: 0.6;
+  font-size: 0.9em;
+  color: #a8b2d1;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
   body {
-    align-items: center;
-    justify-content: center;
-    padding-left: 0;
-    padding-right: 0;
-    padding: 0 6px;
+    padding: 0 4vw;
   }
   .container {
-    max-width: 98vw;
-    padding: 22px 8px 18px 8px;
-    margin-top: 18px;
-    margin-bottom: 18px;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    width: auto;
+    max-width: 100%;
+    padding: 30px 20px;
+    margin: 20px auto;
+    border-radius: 12px;
   }
   h2 {
-    font-size: 1.15em;
-    margin-bottom: 16px;
+    font-size: 1.4em;
+    margin-bottom: 20px;
   }
   form label {
-    font-size: 0.97em;
-    margin: 12px 0 5px;
+    font-size: 0.9em;
+    margin-top: 16px;
   }
   form input[type="text"],
   form input[type="email"],
   form input[type="tel"] {
-    font-size: 0.97em;
-    padding: 8px 8px;
-    margin-bottom: 8px;
-    border-radius: 6px;
+    padding: 10px 12px;
   }
   form button[type="submit"] {
-    font-size: 0.97em;
-    padding: 10px 0;
-    border-radius: 6px;
-    margin-top: 14px;
+    padding: 12px 0;
+    font-size: 1em;
+    margin-top: 20px;
   }
   #addMember, #removeMember {
-    font-size: 0.95em;
-    padding: 8px 0;
-    border-radius: 6px;
-    margin-top: 6px;
+    padding: 9px 0;
+    font-size: 0.85em;
   }
   #successMsg {
     font-size: 1em;
-    margin-top: 12px;
+    padding: 12px;
   }
   footer {
-    font-size: 0.97em;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding: 25px 0;
+    margin-top: 0;
+  }
+  .member-pair {
+    flex-direction: column;
+    gap: 0;
+  }
+  .member-pair input:first-of-type {
+    margin-bottom: 8px;
   }
 }

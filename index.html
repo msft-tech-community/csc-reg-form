@@ -25,7 +25,7 @@
         <h2>Code Red : The Cyber Buzzer Battle</h2>
 
         <label for="teamLeaderName"
-          >Team Leader Name <span style="color: #00bcd4">*</span></label
+          >Team Leader Name <span class="required">*</span></label
         >
         <input
           type="text"
@@ -36,8 +36,7 @@
         />
 
         <label for="teamLeaderEnroll"
-          >Team Leader Enrollment No
-          <span style="color: #00bcd4">*</span></label
+          >Team Leader Enrollment No <span class="required">*</span></label
         >
         <input
           type="text"
@@ -48,7 +47,7 @@
         />
 
         <label for="department"
-          >Department <span style="color: #00bcd4">*</span></label
+          >Department <span class="required">*</span></label
         >
         <input
           type="text"
@@ -58,7 +57,7 @@
           placeholder="e.g. Computer Science"
         />
 
-        <label for="course">Course <span style="color: #00bcd4">*</span></label>
+        <label for="course">Course <span class="required">*</span></label>
         <input
           type="text"
           id="course"
@@ -67,9 +66,7 @@
           placeholder="e.g. B.Tech, MCA"
         />
 
-        <label for="section"
-          >Section <span style="color: #00bcd4">*</span></label
-        >
+        <label for="section">Section <span class="required">*</span></label>
         <input
           type="text"
           id="section"
@@ -78,7 +75,7 @@
           placeholder="e.g. A, B, C"
         />
 
-        <label for="batch">Batch <span style="color: #00bcd4">*</span></label>
+        <label for="batch">Batch <span class="required">*</span></label>
         <input
           type="text"
           id="batch"
@@ -88,10 +85,8 @@
         />
 
         <label for="email"
-          >Team Leader Email <span style="color: #00bcd4">*</span>
-          <span style="font-size: 0.95em; color: #f77"
-            >(Non-Amity email only)</span
-          ></label
+          >Team Leader Email <span class="required">*</span>
+          <span class="note">(Non-Amity email only)</span></label
         >
         <input
           type="email"
@@ -102,7 +97,7 @@
         />
 
         <label for="phone"
-          >Team Leader Phone No <span style="color: #00bcd4">*</span></label
+          >Team Leader Phone No <span class="required">*</span></label
         >
         <input
           type="tel"
@@ -115,64 +110,49 @@
 
         <label
           >Other Team Members (min 3, max 5)
-          <span style="color: #00bcd4">*</span></label
+          <span class="required">*</span></label
         >
         <div id="teamMembers">
-          <div
-            class="member-pair"
-            style="display: flex; gap: 8px; margin-bottom: 12px"
-          >
+          <div class="member-pair">
             <input
               type="text"
               name="teamMember"
               placeholder="Member 1 Name (required)"
               required
-              style="flex: 1"
             />
             <input
               type="text"
               name="teamMemberEnroll"
               placeholder="Member 1 Enrollment No (required)"
               required
-              style="flex: 1"
             />
           </div>
-          <div
-            class="member-pair"
-            style="display: flex; gap: 8px; margin-bottom: 12px"
-          >
+          <div class="member-pair">
             <input
               type="text"
               name="teamMember"
               placeholder="Member 2 Name (required)"
               required
-              style="flex: 1"
             />
             <input
               type="text"
               name="teamMemberEnroll"
               placeholder="Member 2 Enrollment No (required)"
               required
-              style="flex: 1"
             />
           </div>
-          <div
-            class="member-pair"
-            style="display: flex; gap: 8px; margin-bottom: 12px"
-          >
+          <div class="member-pair">
             <input
               type="text"
               name="teamMember"
               placeholder="Member 3 Name (required)"
               required
-              style="flex: 1"
             />
             <input
               type="text"
               name="teamMemberEnroll"
               placeholder="Member 3 Enrollment No (required)"
               required
-              style="flex: 1"
             />
           </div>
         </div>
@@ -180,10 +160,8 @@
         <button type="button" id="removeMember">Remove Member</button>
 
         <label for="idProof"
-          >Team Leader's ID Proof <span style="color: #00bcd4">*</span>
-          <span style="font-size: 0.95em; color: #f77"
-            >(PDF only, max 2MB)</span
-          ></label
+          >Team Leader's ID Proof <span class="required">*</span>
+          <span class="note">(PDF only, max 2MB)</span></label
         >
         <input
           type="file"
@@ -195,9 +173,9 @@
 
         <button type="submit">Register</button>
       </form>
-      <div id="successMsg" style="display: none">Registration successful!</div>
+      <div id="successMsg">Registration successful!</div>
     </div>
-    <footer style="text-align: center; margin-top: 32px">
+    <footer>
       Unified Events Portal made by Microsoft Student Tech Community &copy;2025.
       All rights reserved.
     </footer>
