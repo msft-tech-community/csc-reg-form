@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrations Database | Code Red : The Cyber Buzzer Battle</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .db-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #23242a;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.32);
+      padding: 32px 18px;
+      color: #eee;
+    }
+    h2 {
+      color: #00bcd4;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+      background: #181a20;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #333;
+      text-align: left;
+      font-size: 0.97em;
+    }
+    th {
+      background: #23242a;
+      color: #00bcd4;
+      font-weight: 500;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    a.file-link {
+      color: #00bcd4;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+    .loading {
+      text-align: center;
+      color: #00bcd4;
+      margin: 24px 0;
+    }
+    .error {
+      text-align: center;
+      color: #f77;
+      margin: 24px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="db-container">
+    <h2>Registrations Database</h2>
+    <div id="dbStatus" class="loading">Loading registrations...</div>
+    <table id="dbTable" style="display:none;">
+      <thead>
+        <tr>
+          <th>Team Leader</th>
+          <th>Enrollment No</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Department</th>
+          <th>Programme</th>
+          <th>Section</th>
+          <th>Batch</th>
+          <th>Team Members</th>
+          <th>ID Proof</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <footer style="text-align:center; margin-top:32px;">
+    Unified Events Portal made by Microsoft Student Tech Community &copy;2025. All rights reserved.
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../scripts/supabase.js"></script>
+  <script src="../scripts/database.js"></script>
+</body>
+</html>
